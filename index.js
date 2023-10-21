@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+const config = require("./config.json");
+
 const client = new Discord.Client({ intents: [
 	'Guilds',
 	'MessageContent',
@@ -8,9 +10,9 @@ const client = new Discord.Client({ intents: [
 	'GuildEmojisAndStickers',
 	'GuildVoiceStates'
 ]});
+
 require('discord-logs')(client);
 require('colors');
-require('dotenv').config();
 
 client.commands = new Discord.Collection();
 client.slash = new Discord.Collection();
@@ -23,4 +25,4 @@ process.on('unhandledRejection', (error) => {
 	console.error(error);
 })
   
-client.login(process.env.TOKEN);
+client.login(config.TOKEN);
