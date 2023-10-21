@@ -1,8 +1,6 @@
-# slash-command by Fnr#0017
+# slash-command by @fnr.
 
 ## slash commands handler to make your bot support slash commands features.
----
-## Need help? join discord server [Invite Link](https://discord.gg/hHweGgGqXa)
 
 ---
 ### Note: Node.js 16.6.0 or newer is required.
@@ -17,14 +15,13 @@ npm install
 ---
 ### Make sure to check [Slash Commands Guide](https://discordjs.guide/interactions/slash-commands.html#registering-slash-commands)
 ---
-### You need to rename example_config.json file to `config.json` and fill the info.
 
 - config.json
 ```js
 {
-    "token": "YOUR_BOT_TOKEN",
-    "serverID": "YOUR_SERVER_ID",
-    "botID": "YOUR_BOT_ID",
+    "TOKEN": "YOUR_BOT_TOKEN",
+    "GUILDID": "YOUR_SERVER_ID",
+    "CLIENTID": "YOUR_BOT_ID",
     "log_channel_id": "Channel-id",
     "prefix": "YOUR_PREFIX",
     "autoRoleId": "ROLE ID",
