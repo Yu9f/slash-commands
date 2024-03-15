@@ -1,4 +1,4 @@
-# slash-command by @fnr.
+# slash-command by @js.f
 
 ## slash commands handler to make your bot support slash commands features.
 
