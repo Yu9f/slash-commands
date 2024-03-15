@@ -1,21 +1,21 @@
-const Discord = require('discord.js');
+const { EmbedBuilder } = require("discord.js");
 
 module.exports = {
-	name: 'avatar',
-	description: 'Get user avatar',
+	name: "avatar",
+	description: "Get user avatar",
 	options: [
 		{
-			name: 'user',
-			description: 'User to get avatar',
+			name: "user",
+			description: "User to get avatar",
 			type: 6,
 		},
 		{
-			name: 'server_avatar',
-			description: 'Get member avatar in this server',
+			name: "server_avatar",
+			description: "Get member avatar in this server",
 			type: 5,
 		},
 	],
-	category: 'general',
+	category: "general",
 	run: async (interaction) => {
 		const member = interaction.options.getMember('user') || interaction.member;
 		const isMemberAvatar = interaction.options.getBoolean('server_avatar');
@@ -26,14 +26,14 @@ module.exports = {
 					ephemeral: true,
 				});
 			}
-			const embed = new Discord.MessageEmbed()
+			const embed = new EmbedBuilder()
 				.setAuthor({ name: member.user.tag, iconURL: member.avatarURL({ dynamic: true }) })
 				.setDescription(`[Avatar Link](${member.avatarURL({ dynamic: true, size: 4096 })})`)
 				.setImage(member.avatarURL({ dynamic: true, size: 4096 }))
 				.setFooter(`Requested By ${interaction.user.tag}`, interaction.user.displayAvatarURL({ dynamic: true }));
 			return interaction.reply({ embeds: [embed] });
 		}
-		const embed = new Discord.MessageEmbed()
+		const embed = new EmbedBuilder()
 			.setAuthor({ name: member.user.tag, iconURL: member.user.displayAvatarURL({ dynamic: true }) })
 			.setDescription(`[Avatar Link](${member.user.displayAvatarURL({ dynamic: true, size: 4096 })})`)
 			.setImage(member.user.displayAvatarURL({ dynamic: true, size: 4096 }))
