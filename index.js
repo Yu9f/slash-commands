@@ -1,7 +1,7 @@
-const Discord = require("discord.js");
+const { Client, Collection, } = require("discord.js");
 const config = require("./config.json");
 
-const client = new Discord.Client({ intents: [
+const client = new Client({ intents: [
 	'Guilds',
 	'MessageContent',
 	'GuildMembers',
@@ -14,8 +14,8 @@ const client = new Discord.Client({ intents: [
 require('discord-logs')(client);
 require('colors');
 
-client.commands = new Discord.Collection();
-client.slash = new Discord.Collection();
+client.commands = new Collection();
+client.slash = new Collection();
 
 ["handlers", "events", "slash"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
